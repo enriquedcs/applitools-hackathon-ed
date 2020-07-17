@@ -1,0 +1,25 @@
+{
+  "name": "personio-feature-onboarding",
+  "version": "1.0.0",
+  "description": "Test Automation for personio feature on boarding - off boarding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Test",
+    "Automation",
+    "testcafe",
+    "UI"
+  ],
+  "author": "enrique decss",
+  "license": "ISC",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "testcafe": "^1.8.8",
+    "testcafe-reporter-html": "^1.4.6"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}
