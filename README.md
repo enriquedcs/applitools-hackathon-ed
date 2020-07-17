@@ -16,4 +16,9 @@ Every single test is located in /test
 
 npm install
 
-npm run test
+npm run test:chrome
+
+npm run test:chrome:htmlreport  --> HTML Reports
+
+
+

@@ -2,7 +2,7 @@
 Author: Enrique Decoss
 
 @package: page-object
-All elements and methods for Login page
+All elements and methods for Nav Bar action
 */
 
 import { Selector, t } from 'testcafe'
@@ -17,6 +17,8 @@ class NavBarAction {
         this.payrollIcon = Selector('li:nth-of-type(6) > a')
         this.importsIcon = Selector('li:nth-of-type(7) > a')
         this.settingsIcon = Selector('li:nth-of-type(8) > a')
+        //Setting
+        this.on_offBoarding = Selector('li:nth-of-type(14)')
         //Assertion
     }
 

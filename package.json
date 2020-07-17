@@ -4,8 +4,10 @@
   "description": "Test Automation for personio feature on boarding - off boarding",
   "main": "index.js",
   "scripts": {
-    "test:chrome": "testcafe chrome ./tests",
-    "test:chrome:htmlreport": "testcafe chrome ./tests --reporter html:reports/Test_Chrome_Personio.html"
+    "test:chrome": "testcafe chrome ./tests -q",
+    "test:firefox": "testcafe firefox ./tests --skip-js-errors -q",
+    "test:safari": "testcafe safari ./tests -q",
+    "test:chrome:htmlreport": "testcafe chrome ./tests -q --reporter html:reports/Test_Chrome_Personio.html"
   },
   "keywords": [
     "Test",
