@@ -10,9 +10,10 @@ import { Selector, t } from 'testcafe'
 class OnoffBoarding {
     constructor() {
         this.onBoardingSteps = Selector('#employee_details_tab > li:nth-of-type(2)')
-        this.offBoardingSteps = Selector('#employee_details_tab > li:nth-of-type(3)')
+        this.offBoardingSteps = Selector('#employee_details_tab > li:nth-of-type(4)')
         this.groups = Selector('#employee_details_tab > li:nth-of-type(5)')
-        this.inputData = Selector(`input[name='step_name']`)
+        this.inputStep = Selector(`input[name='step_name']`)
+        this.inputTeam = Selector(`input[name='team_name']`)
         this.onBoardingType = Selector('.btn.btn-default.dropdown-toggle')
         this.drpType = Selector('.btn.btn-default.dropdown-toggle')
         this.emailType = Selector('.dropdown-menu.select-step-type > li:nth-of-type(2) > a')
@@ -46,6 +47,10 @@ class OnoffBoarding {
 
         //Upload
 
+        //Groups
+        this.delGroups = Selector(`.sub-header [data-toggle='modal']:nth-child(2)`)
+        this.deleteBtnTeam = Selector(`#modal-delete-team form[method='post']  .btn.btn-danger`)
+
         //Delete
         this.testStep = Selector('#step_list > li:nth-last-of-type(1)')
         this.deleteIcon = Selector('div:nth-last-of-type(1) > .sub-header > a > i')
@@ -63,10 +68,10 @@ class OnoffBoarding {
 
     }
     
-    async goToAddStep(name){
-        await t.click(this.inputData)
-                .typeText(this.inputData, "X"+name)
-                .click(this.plusButton)
+    async goToAddStep(name, input){
+        input == "step" && await t.typeText(this.inputStep, "X"+name)
+        input == "team" && await t.typeText(this.inputTeam, "X"+name)
+        await t.click(this.plusButton)
     }
     async goToAddItem(item){
         await t.click(this.addLastItem)
@@ -80,7 +85,10 @@ class OnoffBoarding {
                 .click(this.testStep)
         await t.click(this.deleteIcon)
         await t.click(this.deleteBtn)
-
+    }
+    async deleteGroup(){
+        await t.click(this.delGroups)
+        await t.click(this.deleteBtnTeam)
     }
 
 }
