@@ -21,7 +21,10 @@ test("Should validate Configuring Onboarding and Offboarding", async t => {
     await t.expect(NavBarAction.settingsIcon.exists).ok( {timeout: t.ctx.gen} )
             .click(NavBarAction.settingsIcon)
             .click(NavBarAction.on_offBoarding)
-    await OnoffBoarding.goToAddStep()
+    //Add Name of the step
+    await OnoffBoarding.goToAddStep("test")
+    //text, download, employee-attribute, profile-picture, checkbox, enter-text, enter-url, upload
+    await OnoffBoarding.goToAddItem("download")
     //Assertion
     await t.expect(OnoffBoarding.saveChg.exists).ok( {timeout: t.ctx.gen} )
 
