@@ -4,21 +4,23 @@ Author: Enrique Decoss
 @package: page-object
 E2E Test for Configuring Onboarding, Offboarding and Teams
 */
-
+require('dotenv').config()
 import LoginAction from '../page-object/Login-BasicAuth-page'
 import NavBarAction from '../page-object/Nav-Bar-page'
 import OnoffBoarding from '../page-object/On-offBoarding-page'
 import config from './config.json'
+const dataSet = require('./data.json')
 
 fixture ` Config On & Offboarding - feature`
 .page`${config.baseURL}`
 .beforeEach( async t => {
     //Login
-    await LoginAction.loginform(`${config.username}`, `${config.password}`)
+    await LoginAction.loginform(process.env.USERNAME, process.env.PASSWORD)
     t.ctx.gen = 20000
 })
 
-test("Should validate Configuring Onboarding", async t => {
+dataSet.forEach(data => {
+test(`Should validate Configuring Onboarding with '${data.item}'`, async t => {
 
     //Assertion
     await t.expect(NavBarAction.settingsIcon.exists).ok( {timeout: t.ctx.gen} )
@@ -28,9 +30,9 @@ test("Should validate Configuring Onboarding", async t => {
     // Choose Options on, off, group
     await OnoffBoarding.goToSteps("on")
     //Add Name of the step
-    await OnoffBoarding.goToAddStep("test", "step")
+    await OnoffBoarding.goToAddStep(data.name, "step")
     //text, download, employee-attribute, profile-picture, checkbox, enter-text, enter-url, upload
-    await OnoffBoarding.goToAddItem("download")
+    await OnoffBoarding.goToAddItem(data.item)
     //Assertion
     await t.expect(OnoffBoarding.saveChg.exists).ok( {timeout: t.ctx.gen} )
 
@@ -38,8 +40,10 @@ test("Should validate Configuring Onboarding", async t => {
 .after (async t => {
     await OnoffBoarding.deleteOption()
 })
+})
 
-test("Should validate Configuring Offboarding", async t => {
+dataSet.forEach(data => {
+test(`Should validate Configuring Offboarding with '${data.item}'`, async t => {
 
     //Assertion
     await t.expect(NavBarAction.settingsIcon.exists).ok( {timeout: t.ctx.gen} )
@@ -49,15 +53,16 @@ test("Should validate Configuring Offboarding", async t => {
     // Choose Options on, off, group & step or team
     await OnoffBoarding.goToSteps("off")
     //Add Name of the step
-    await OnoffBoarding.goToAddStep("test", "step")
+    await OnoffBoarding.goToAddStep(data.name, "step")
     //text, download, employee-attribute, profile-picture, checkbox, enter-text, enter-url, upload
-    await OnoffBoarding.goToAddItem("download")
+    await OnoffBoarding.goToAddItem(data.item)
     //Assertion
     await t.expect(OnoffBoarding.saveChg.exists).ok( {timeout: t.ctx.gen} )
 
 })
 .after (async t => {
     await OnoffBoarding.deleteOption()
+})
 })
 
 test("Should validate Configuring Groups", async t => {
