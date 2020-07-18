@@ -3,7 +3,7 @@
     <img alt="Tested with TestCafe" src="https://img.shields.io/badge/tested%20with-TestCafe-2fa4cf.svg">
 </a>
 
-# Personio on-boarding / off boarding
+# Personio on-boarding / off boarding / Groups
 
 Automated Tests using testcafe
 
@@ -12,7 +12,7 @@ Automated Tests using testcafe
 
 Every single test is located in /test
 
-# Lunch test
+# Launch test
 
 npm install
 
