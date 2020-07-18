@@ -23,8 +23,29 @@ class OnoffBoarding {
         this.createBtn = Selector(`#modal-add-item .btn.btn-primary`)
         //Text 
         this.textArea = Selector('div:nth-last-of-type(1) [placeholder]')
-        //
+        //Download 
         
+        
+        //Employee-attribute 
+        
+        
+        //Profile-picture 
+        
+        
+        //Checkbox 
+        
+        
+        
+        //Enter-text 
+        
+        
+        
+        //Enter-url 
+        
+        
+
+        //Upload
+
         //Delete
         this.testStep = Selector('#step_list > li:nth-last-of-type(1)')
         this.deleteIcon = Selector('div:nth-last-of-type(1) > .sub-header > a > i')
@@ -36,11 +57,13 @@ class OnoffBoarding {
 
     async goToSteps(varname){
 
+        varname == "on" && await t.click(this.onBoardingSteps)
+        varname == "off" && await t.click(this.offBoardingSteps)
+        varname == "group" && await t.click(this.groups)
+
     }
     
     async goToAddStep(name){
-        await t.hover(this.onBoardingSteps)
-                .click(this.onBoardingSteps)
         await t.click(this.inputData)
                 .typeText(this.inputData, "X"+name)
                 .click(this.plusButton)

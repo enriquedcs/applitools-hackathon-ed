@@ -18,6 +18,10 @@ npm install
 
 npm run test:chrome
 
+npm run test:firefox
+
+npm run test:safari
+
 npm run test:chrome:htmlreport  --> HTML Reports
 
 

@@ -22,6 +22,17 @@ class NavBarAction {
         //Assertion
     }
 
+    async navigateToIcons(icon){
+        icon == "dashboard" && await t.click(this.this.dashboardIcon)
+        icon == "employee" && await t.click(this.employeesIcon)
+        icon == "calendar" && await t.click(this.calendarIcon)
+        icon == "recruiting" && await t.click(this.recrutingIcon)
+        icon == "report" && await t.click(this.reportsIcon)
+        icon == "payroll" && await t.click(this.payrollIcon)
+        icon == "import" && await t.click(this.importsIcon)
+        icon == "settings" && await t.click(this.settingsIcon)
+    }
+
 }
 
 export default new NavBarAction
