@@ -3,14 +3,14 @@
     <img alt="Tested with TestCafe" src="https://img.shields.io/badge/tested%20with-TestCafe-2fa4cf.svg">
 </a>
 
-# Personio on-boarding / off boarding / Groups
+# Visual Test Automation
 
-Automated Tests using testcafe
+Automated Tests using testcafe for AppliFashion
 
 
 # How it works
 
-Every single test is located in /test
+Every single test is located in /visual_tests
 
 # Launch test
 
@@ -22,7 +22,6 @@ npm run test:firefox
 
 npm run test:safari
 
-npm run test:chrome:htmlreport  --> HTML Reports
 
 
 

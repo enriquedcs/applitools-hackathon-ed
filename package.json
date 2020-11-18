@@ -1,10 +1,10 @@
 {
-  "name": "personio-feature-onboarding",
+  "name": "applitools-shopping",
   "version": "1.0.0",
-  "description": "Test Automation for personio feature on boarding - off boarding",
+  "description": "Test Automation Applitools Visual Testing",
   "main": "index.js",
   "scripts": {
-    "test:chrome": "testcafe chrome ./tests",
+    "test:chrome": "APPLITOOLS_API_KEY=XRq871sN9k1072Xgwx9qfnWIsZ106kzkEvnIA9jJp6A53x8110 testcafe chrome:headless ./visual_tests",
     "test:firefox": "testcafe firefox ./tests --skip-js-errors -q",
     "test:safari": "testcafe safari ./tests -q",
     "test:chrome:htmlreport": "testcafe chrome ./tests -q --reporter html:reports/Test_Chrome_Personio.html"
@@ -23,6 +23,7 @@
     "testcafe-reporter-html": "^1.4.6"
   },
   "devDependencies": {
+    "@applitools/eyes-testcafe": "^1.11.1",
     "dotenv": "^8.2.0",
     "prettier": "^2.0.5"
   }

@@ -1,0 +1,6 @@
+{
+    "baseURL": "https://demo.applitools.com/tlcHackathonMasterV1.html",
+    "devURL": "https://demo.applitools.com/tlcHackathonDev.html",
+    "baseProd": "https://demo.applitools.com/tlcHackathonMasterV2.html"
+
+}
